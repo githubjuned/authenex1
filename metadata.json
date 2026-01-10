@@ -1,0 +1,7 @@
+{
+  "name": "Authenex - Deepfake & AI Image Detector",
+  "description": "A cutting-edge forensic tool to distinguish between human-captured photography and AI-generated imagery using advanced neural analysis.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
