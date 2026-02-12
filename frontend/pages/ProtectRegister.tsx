@@ -70,7 +70,12 @@ export const ProtectRegister: React.FC<ProtectRegisterProps> = ({ setActiveTab, 
         setIsProcessing(true);
         try {
             const token = await auth.currentUser?.getIdToken();
-            const API_BASE = import.meta.env.VITE_API_URL || '';
+            const API_BASE = import.meta.env.VITE_API_URL;
+            if (!API_BASE) {
+                alert("Configuration Error: VITE_API_URL is missing. Please set it in Vercel.");
+                throw new Error("VITE_API_URL is missing");
+            }
+            console.log("Protect Register URL:", `${API_BASE}/api/protect/register`);
             const response = await fetch(`${API_BASE}/api/protect/register`, {
                 method: 'POST',
                 headers: {
