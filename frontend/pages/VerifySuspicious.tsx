@@ -61,7 +61,8 @@ export const VerifySuspicious: React.FC<VerifySuspiciousProps> = ({ setActiveTab
         setIsProcessing(true);
         try {
             const token = await auth.currentUser?.getIdToken();
-            const response = await fetch('/api/protect/verify', {
+            const API_BASE = import.meta.env.VITE_API_URL || '';
+            const response = await fetch(`${API_BASE}/api/protect/verify`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

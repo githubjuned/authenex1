@@ -32,7 +32,8 @@ export const MyProtectedContent: React.FC<MyProtectedContentProps> = ({ setActiv
             if (!user) return;
 
             const token = await user.getIdToken();
-            const response = await fetch(`/api/protect/list/${user.uid}`, {
+            const API_BASE = import.meta.env.VITE_API_URL || '';
+            const response = await fetch(`${API_BASE}/api/protect/list/${user.uid}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -59,7 +60,8 @@ export const MyProtectedContent: React.FC<MyProtectedContentProps> = ({ setActiv
 
         try {
             const token = await auth.currentUser?.getIdToken();
-            const response = await fetch(`/api/protect/${caseId}`, {
+            const API_BASE = import.meta.env.VITE_API_URL || '';
+            const response = await fetch(`${API_BASE}/api/protect/${caseId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`

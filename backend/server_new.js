@@ -797,6 +797,43 @@ app.get('/api/protect/list/:userId', verifyToken, async (req, res) => {
     }
 });
 
+// 3. Register Protected Content
+app.post('/api/protect/register', verifyToken, async (req, res) => {
+    try {
+        const { fileBase64, ownerName, additionalInfo, mimeType } = req.body;
+        if (!fileBase64) return res.status(400).json({ error: "No file provided" });
+
+        const buffer = Buffer.from(fileBase64.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+        const caseId = uuidv4();
+
+        // Generate Fingerprints
+        const sha256 = FingerprintService.generateSHA256(buffer);
+        const pHash = await FingerprintService.generatePHash(buffer);
+        const embedding = await FingerprintService.generateEmbedding(buffer, mimeType || "image/jpeg");
+
+        const record = {
+            caseId,
+            userId: req.user.uid,
+            ownerName,
+            additionalInfo,
+            timestamp: new Date().toISOString(),
+            sha256,
+            pHash,
+            embedding, // Vector for semantic search
+            status: 'active'
+        };
+
+        await db.collection('protected_content').doc(caseId).set(record);
+
+        // Also save to user's history or subcollection if needed
+        res.json({ success: true, caseId });
+
+    } catch (error) {
+        console.error("Protect Register Error:", error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
 // 3. Verify Suspicious Content
 app.post('/api/protect/verify', verifyToken, async (req, res) => {
     try {
