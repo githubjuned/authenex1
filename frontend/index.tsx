@@ -44,7 +44,8 @@ const init = async () => {
         <pre style={{ textAlign: 'left', background: '#333', padding: '20px', borderRadius: '5px', overflow: 'auto' }}>
           {error.message || JSON.stringify(error)}
         </pre>
-        <p>Ensure Backend is running on port 3000</p>
+        <p>Could not connect to backend services. Failed to fetch.</p>
+        <p className="text-xs mt-2 opacity-70">Ensure VITE_API_URL is set / Backend is running.</p>
         <button onClick={() => window.location.reload()} style={{ padding: '10px 20px', marginTop: '20px', cursor: 'pointer' }}>Retry</button>
       </div>
     );

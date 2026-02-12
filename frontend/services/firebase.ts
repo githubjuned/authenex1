@@ -9,8 +9,8 @@ let googleProvider: GoogleAuthProvider;
 export const initializeFirebase = async () => {
     try {
         console.log("Fetching Firebase config...");
-        // Use 127.0.0.1 to avoid potential localhost resolution issues
-        const response = await fetch('http://127.0.0.1:3001/api/firebase-config');
+        const apiBase = import.meta.env.VITE_API_URL || 'http://127.0.0.1:3001';
+        const response = await fetch(`${apiBase}/api/firebase-config`);
         if (!response.ok) {
             console.error(`Failed to fetch config: ${response.status} ${response.statusText}`);
             throw new Error(`Failed to fetch Firebase config: ${response.statusText}`);

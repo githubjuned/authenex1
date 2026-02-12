@@ -1,6 +1,7 @@
 import { Language } from '../types';
 
-const BACKEND_URL = "http://localhost:3001/api";
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const BACKEND_URL = `${API_BASE}/api`;
 
 export class OpenAIService {
     // No headers needed for proxy (unless we add auth later)
