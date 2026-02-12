@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Backend Secrets
+backend/serviceAccountKey.json
+backend/server.log
+
+# Build Outputs
+dist/
+build/
+coverage/
+
+# Misc
+.DS_Store
+.vscode/
+.idea/
+*.log

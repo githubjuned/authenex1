@@ -1,0 +1,32 @@
+
+{
+  "name": "Authenex Digital Forensic Lab",
+  "short_name": "Authenex",
+  "description": "Advanced AI-powered deepfake detection and forensic analysis laboratory.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "orientation": "portrait",
+  "categories": ["security", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dyvmqkxok/image/upload/v1770378250/authenex_pkxcfi.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://res.cloudinary.com/dyvmqkxok/image/upload/v1770378250/authenex_pkxcfi.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://res.cloudinary.com/dyvmqkxok/image/upload/v1770378250/authenex_pkxcfi.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

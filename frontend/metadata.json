@@ -1,0 +1,9 @@
+{
+  "name": "AUTHENEX - AI Fraud Detection & Auth",
+  "description": "A high-security authentication platform using Gemini AI for multi-modal deepfake detection and liveness verification.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}

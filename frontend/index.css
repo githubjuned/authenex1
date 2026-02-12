@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --sat: env(safe-area-inset-top);
+    --sar: env(safe-area-inset-right);
+    --sab: env(safe-area-inset-bottom);
+    --sal: env(safe-area-inset-left);
+}
+
+.font-modern {
+    font-family: 'Outfit', sans-serif;
+}
+
+.light {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+}
+
+/* Essential Mobile App Reset */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* Clean, premium radial gradient background */
+    background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 40%, #020617 100%);
+    background-attachment: fixed;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    overscroll-behavior-y: contain;
+}
+
+body {
+    font-family: 'Chakra Petch', sans-serif;
+    color: hsl(var(--foreground));
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Main body stays locked */
+}
+
+.font-modern {
+    font-family: 'Outfit', sans-serif;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.glass-panel {
+    background: rgba(11, 20, 36, 0.65);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light .glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Modern Gradient Slogan */
+.modern-slogan-gradient {
+    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 50%, #6366f1 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Custom scrollbar - invisible for app feel */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+@keyframes marquee-up {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes marquee-down {
+    0% {
+        transform: translateY(-50%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animate-marquee-up {
+    animation: marquee-up 40s linear infinite;
+}
+
+.animate-marquee-down {
+    animation: marquee-down 40s linear infinite;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+@keyframes scan-line {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.animate-scan {
+    animation: scan-line 2s linear infinite;
+    background: linear-gradient(to bottom, transparent, cyan);
+    box-shadow: 0 0 10px cyan;
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 30;
+}
+
+.scan-grid {
+    background-image:
+        linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+}
+
+/* --- NEW ANIMATIONS --- */
+
+@keyframes radar-sweep {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-radar-sweep {
+    animation: radar-sweep 4s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.8);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+.animate-glitch {
+    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+/* Clip Path for Slanted Buttons */
+.clip-path-slant {
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+/* --- Tailwind CSS Animate Compatibility Layer --- */
+/* Manual implementation of the animations used in the Protect wizard to ensure smooth transitions without extra plugins */
+
+@keyframes fadeInZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInSlideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInSlideInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: forwards;
+}
+
+/* Map specific combinations used in the component */
+.animate-in.fade-in.zoom-in {
+    animation-name: fadeInZoomIn;
+}
+
+.animate-in.fade-in.slide-in-from-right-8 {
+    animation-name: fadeInSlideInRight;
+}
+
+.animate-in.fade-in.slide-in-from-bottom-4 {
+    animation-name: fadeInSlideInBottom;
+}
