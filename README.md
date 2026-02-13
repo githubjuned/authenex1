@@ -1,5 +1,9 @@
-
 <div align="center">
+
+### LOGIN CREDENTIALS 
+
+6. Admin_Mail- nexora@authenex.in
+7. password- Nexora@6699
 
 # 🛡️ AUTHENEX
 ### Reality Recoded | AI-Powered Deepfake Detection & Content Authentication
